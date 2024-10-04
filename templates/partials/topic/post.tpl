@@ -94,8 +94,11 @@
 
 	<div component="post/actions" class="d-flex justify-content-end gap-1 post-tools">
 		<!-- IMPORT partials/topic/reactions.tpl -->
-		<a component="post/endorse" href="#" class="btn-ghost-sm" title="[[topic:Endorse]]">
-    <i class="fa fa-fw fa-thumbs-{{{ if posts.endorsed }}}up{{{ else }}}o-up{{{ end }}} text-primary"></i>
+		{{{ if privileges.isAdminOrMod }}} <!-- Check if the user is an admin -->
+        <a component="post/endorse" href="#" class="btn-ghost-sm{{{ if posts.endorsed }}} endorsed{{{ end }}}" title="[[topic:Endorse]]" onclick="endorsePost({posts.pid})">
+            <i class="fa fa-fw fa-thumbs-{{{ if posts.endorsed }}}up{{{ else }}}o-up{{{ end }}} text-primary"></i>
+        </a>
+		{{{ end }}}
 </a>
 <a component="post/reply" href="#" class="btn-ghost-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:reply]]"><i class="fa fa-fw fa-reply text-primary"></i></a>
 		<a component="post/quote" href="#" class="btn-ghost-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:quote]]"><i class="fa fa-fw fa-quote-right text-primary"></i></a>
