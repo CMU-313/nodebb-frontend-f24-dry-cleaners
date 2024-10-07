@@ -62,6 +62,9 @@
 		<div class="content mt-2 text-break" component="post/content" itemprop="text">
 			{posts.content}
 		</div>
+		<div style="color: green; text-align: center; font-weight:bold;">
+			~This comment has been endorsed by an instructor~
+		</div>
 	</div>
 </div>
 
